@@ -2,7 +2,6 @@ package com.luv2code.springsecurity.demo.config;
 
 import java.beans.PropertyVetoException;
 import java.util.logging.Logger;
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +58,12 @@ public class DemoAppConfig {
 		
 		// Log the connection props
 		logger.info(">>> jdbc.url= " + env.getProperty("jdbc.url"));
-		logger.info(">>> jdbc.url= " + env.getProperty("jdbc.user"));
+		logger.info(">>> jdbc.user= " + env.getProperty("jdbc.user"));
 		
 		// Set database connection properties
 		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
-		securityDataSource.setJdbcUrl(env.getProperty("jdbc.user"));
-		securityDataSource.setJdbcUrl(env.getProperty("jdbc.password"));
+		securityDataSource.setUser(env.getProperty("jdbc.user"));
+		securityDataSource.setPassword(env.getProperty("jdbc.password"));
 		
 		// Set connection pool properties
 		securityDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
